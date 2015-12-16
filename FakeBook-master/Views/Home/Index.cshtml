@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link href="~/Content/Frontpage.css" rel="stylesheet" />
+    <link href="~/Content/animate-custom.css" rel="stylesheet" />
+    <script src="~/Content/jquery.min.js"></script>
+    <script src="~/Content/smoothscroll.js"></script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+    <!--Initialize navigation bar-->
+    <div id="navbar-main">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#home" class="smoothScroll">FakeBook</a></li>
+                        <li> <a href="#about" class="smoothScroll"> Introduction</a></li>
+                        <li> <a href="#team" class="smoothScroll"> Members</a></li>
+                        <li> <a href="#contact" class="smoothScroll"> Support</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.Partial("_LoginPartial")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="headerwrap" id="home" name="home" style="background:url('../../Assets/Frontpage.jpg') no-repeat center top; background-size: cover;">
+        <header class="clearfix">
+            <h1><span class="icon icon-shield"></span></h1>
+            <p>FakeBook</p>
+            <p>
+                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+            <p><a href="/home/profileview" class="btn btn-danger btn-lg">My Profile &raquo;</a></p>
+            }
+            else
+            { <p><a href="/account/register" class="btn btn-danger btn-lg">Join Us &raquo;</a></p>}</p>
+            </p>
+        </header>
+    </div>
+    <div id="greywrap">
+
+        <div class="row">
+            <div class="col-lg-4 callout">
+                <span class="icon icon-stack"></span>
+                <h2>Free And Powerfull</h2>
+                <p>It’s free and always will be.  </p>
+            </div>
+
+            <div class="col-lg-4 callout">
+                <span class="icon icon-eye"></span>
+                <h2>FakeBook</h2>
+                <p>Connect with friends and the world around you.  </p>
+            </div>
+
+            <div class="col-lg-4 callout">
+                <span class="icon icon-heart"></span>
+                <h2>Created with Love</h2>
+                <p>We don't just make tools for this project, we craft them with love & passion. We only do things that we love.   </p>
+            </div>
+
+        </div><!-- row -->
+
+    </div>
+    <!-- ==== ABOUT ==== -->
+    <div class="container" id="about" name="about">
+        <div class="row white">
+            <br>
+            <h1 class="centered">INTRODUCTION</h1>
+            <hr>
+            <div class="centered">
+                <p>
+                    A social network in the making.
+                </p>
+            </div>
+        </div><!-- row -->
+    </div><!-- container -->
+    <!-- ==== TEAM MEMBERS ==== -->
+    <div class="container" id="team" name="team">
+        <br>
+        <div class="row white centered">
+            <h1 class="centered">MEET OUR AWESOME MEMBERS</h1>
+            <hr>
+            <br>
+            <br>
+            <section id="Contacts">
+
+                <div class="row">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <a href="#contactModal1" class="contact-link" data-toggle="modal">
+                            <img src="~/Assets/Matt.jpg" class="img-responsive" width="200" height="40" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <a href="#contactModal2" class="contact-link" data-toggle="modal">
+                            <img src="~/Assets/Steve.jpg" class="img-responsive" width="200" height="40" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <a href="#contactModal3" class="contact-link" data-toggle="modal">
+                            <img src="~/Assets/Benedict.jpg" class="img-responsive" width="200" height="40" alt="">
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!--TEAM MEMBERS IN DETAILS-->
+    <div class="contact-modal modal fade" id="contactModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div align="center" class="modal-body">
+                            <h2>Matt Damon</h2>
+                            <hr class="star-primary">
+                            <img src="~/Assets/Matt.jpg" class="img-responsive" width="200" height="40" alt="">
+                            <ul class="list-inline item-details">
+                                <li>
+                                    Email:
+                                    <a href="mailto:tranp3@go.stockton.edu">tranp3@go.stockton.edu</a>
+                                    
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-modal modal fade" id="contactModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div align="center" class="modal-body">
+                            <h2>Steve Jobs</h2>
+                            <hr class="star-primary">
+                            <img src="~/Assets/Steve.jpg" class="img-responsive" width="200" height="40" alt="">
+                            <ul class="list-inline item-details">
+                                <li>
+                                    Email:
+                                    <a href="mailto:mcgrat14@go.stockton.edu">mcgrat14@go.stockton.edu</a>
+                                    
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-modal modal fade" id="contactModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div align="center" class="modal-body">
+                            <h2>Benedict Cumberbatch</h2>
+                            <hr class="star-primary">
+                            <img src="~/Assets/Benedict.jpg" class="img-responsive" width="200" height="40" alt="">
+                            <ul class="list-inline item-details">
+                                <li>
+                                    Email:
+                                    <a href="mailto:sanderlm@go.stockton.edu">sanderlm@go.stockton.edu</a>
+                                    <div id="map"></div>
+                                    
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="container" id="contact" name="contact">
+        <div class="row">
+            <br>
+            <h1 class="centered">THANKS FOR VISITING US</h1>
+            <hr>
+            <br>
+            <br>
+            <div class="col-lg-4">
+                <p>
+                    <img src="~/Assets/Stockton.png" /> <br />
+                    <span></span><a href="http://www.stockton.edu"> Stocton University</a><br />
+                    <span></span><a href="http://maps.google.com/?q=101 Vera King Farris Dr, Galloway, NJ 08205"> 101 Vera King Farris Dr, Galloway, NJ 08205</a> <br />
+                    <span></span><a href="tel://6096521776"> (609) 652-1776</a><br />
+                </p>
+            </div><!-- col -->
+
+            <div class="col-lg-4">
+                <h3>Newsletter</h3>
+                <p>Register to our newsletter and be updated with the latests information regarding our services, offers and much more.</p>
+                <p>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-4 control-label"></label>
+                            <div class="col-lg-10">
+                                <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="text1" class="col-lg-4 control-label"></label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="text1" placeholder="Your Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10">
+                                <button type="submit" class="btn btn-success">Sign in</button>
+                            </div>
+                        </div>
+                    </form><!-- form -->
+                </p>
+            </div><!-- col -->
+
+            <div class="col-lg-4">
+                <h3>Contact Us</h3>
+                <p>We are here to help. If you have any question about our application or simply just want to find out more about FakeBook, please let us know.</p>
+            </div><!-- col -->
+        </div><!-- row -->
+
+    </div><!-- container -->
+
+</body>
+</html>

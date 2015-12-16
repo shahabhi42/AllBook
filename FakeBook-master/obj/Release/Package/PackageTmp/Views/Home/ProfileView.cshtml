@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.EntityFramework;
+@using NewFakeBookMarkIII.Models;
+@model UserProfileInfo
+
+
+    @{
+    ViewBag.Title = "My Page";
+    }
+
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="~/Content/gmaps.js"></script>
+    <style type="text/css">
+        #map {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+
+
+    <h3>Profile Picture</h3>
+
+    <img src="https://phuongtran.blob.core.windows.net/fakebook/contact-placeholder.jpg" width="250" height="200">
+
+    <h2>Upload</h2>
+
+    <form action="@Url.Action(" Upload")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+        <label for="file">Filename:</label>
+        <input type="file" name="file" id="file" class="form-control" />
+
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </form>
+
+
+    <div>
+        @{
+        if (Request.IsAuthenticated)
+        {
+        var manager = new UserManager<ApplicationUser>
+            (new UserStore<ApplicationUser>
+                (new ApplicationDbContext()));
+                var currentUser = manager.FindById(User.Identity.GetUserId());
+                <h2><p>Email: @currentUser.Email</p></h2>
+                <h2><p>Name: @currentUser.UserProfileInfo.FirstName @currentUser.UserProfileInfo.LastName</p></h2>
+                <h2><p>Address: @currentUser.UserProfileInfo.City @currentUser.UserProfileInfo.State</p></h2>
+                <h2><p>Introduction: @currentUser.UserProfileInfo.Introduction </p></h2>
+                <h2><p>Interest: @currentUser.UserProfileInfo.Interest</p></h2>
+                }
+                }
+    </div>
+
+
+    <div id="map"></div>
+    <script>
+        var map = new GMaps({
+            el: '#map',
+            lat: 39.3773
+            lng: -74.4511
+        });
+    </script>
+
+
